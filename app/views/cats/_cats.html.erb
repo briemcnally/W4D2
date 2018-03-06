@@ -1,0 +1,28 @@
+<ul>
+  <li><%= cat.name %></li>
+
+  <% if type == :index %>
+    <%= link_to "A Cat You'll Pawsitively Love", cat_url(cat) %>
+  <% end %>
+</ul>
+
+<% if type == :show %>
+  <table style="width=100%">
+    <tr>
+      <th>Age</th>
+      <th>Color</th>
+      <th>Sex</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td><%= cat.age %></td>
+      <td><%= cat.color %></td>
+      <td><%= cat.sex %></td>
+      <td><%= cat.description %></td>
+    </tr>
+  </table>
+  <br>
+  <%= link_to "Cat's of all Purr-suasions", cats_url %>
+  <br>
+  <%= link_to "CHANGE DA KITTY", edit_cat_url(cat) %>
+<%end %>

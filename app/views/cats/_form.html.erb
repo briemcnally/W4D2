@@ -1,0 +1,46 @@
+<% if action == :edit %>
+  <% action_url = cat_url(cat) %>
+  <% button_text = "Way to change their catitude!" %>
+<% elsif action == :new %>
+  <% action_url = cats_url %>
+  <% button_text = "You're a dog person aren't you?" %>
+<% end %>
+
+
+<form action="<%= action_url%>" method="POST">
+
+<% if action == :edit %>
+  <input type="hidden" name="_method" value="PATCH">
+<% end %>
+
+  <label>Name</label>
+  <input type="text" name="cat[name]" value="<%= cat.name %>"/>
+
+  <br><br>
+  <label>Birthday</label>
+  <input type="datetime" name="cat[birth_date]" value="<%= cat.birth_date %>"/>
+  <p>yyyy/mm/dd</p>
+
+  <label>Color</label>
+  <select name="cat[color]">
+    <option disabled <%= cat.color ? "selected" : "" %></option>
+    <option value="red" <%= cat.color == "red" ? "selected" : "" %>>Red</option>
+    <option value="purple" <%= cat.color == "purple" ? "selected" : "" %>>Purple</option>
+    <option value="orange" <%= cat.color == "orange" ? "selected" : "" %>>Orange</option>
+    <option value="yellow" <%= cat.color == "yellow" ? "selected" : "" %>>Yellow</option>
+    <option value="brown" <%= cat.color == "brown" ? "selected" : "" %>>Brown</option>
+    <option value="green" <%= cat.color == "green" ? "selected" : "" %>>Green</option>
+    <option value="black" <%= cat.color == "black" ? "selected" : "" %>>Black</option>
+  </select>
+
+  <br><br>
+  <label>Gender</label>
+  <input type="text" name="cat[sex]" value="<%= cat.sex %>"/>
+
+  <br><br>
+  <label>Description</label>
+  <input type="text" name="cat[description]" value="<%= cat.description %>"/>
+
+  <br><br>
+  <input type="submit" value="<%= button_text %>" />
+</form>

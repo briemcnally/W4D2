@@ -3,3 +3,5 @@
 <% @cats.each do |cat| %>
   <%= render 'cats', cat: cat, type: :index %>
 <% end %>
+
+<%= link_to "Abandon Your Cat Here", new_cat_url %>

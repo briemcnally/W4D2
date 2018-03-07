@@ -21,8 +21,29 @@
       <td><%= cat.description %></td>
     </tr>
   </table>
+
+  <table style="width=100%">
+    <tr>
+      <th>Rental Start Date</th>
+      <th>Rental End Date</th>
+      <th>Current Status</th>
+    </tr>
+    <% cat_rentals = cat.cat_rental_requests %>
+    <% unless cat_rentals.nil? %>
+      <% cat_rentals.each do |cat_rental| %>
+        <tr>
+          <td><%= cat_rental.start_date %></td>
+          <td><%= cat_rental.end_date %></td>
+          <td><%= cat_rental.status %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+
   <br>
   <%= link_to "Cat's of all Purr-suasions", cats_url %>
   <br>
   <%= link_to "CHANGE DA KITTY", edit_cat_url(cat) %>
+  <br>
+  <%= link_to "Rent Me... Please... It's awful here...", new_cat_rental_request_url %>
 <%end %>

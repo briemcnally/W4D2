@@ -8,3 +8,7 @@
 
 
 cat1 = Cat.create(name: "Wiggles", birth_date: DateTime.now, color: "purple", sex: "F", description: "catastic")
+
+
+
+cat_request = CatRentalRequest.create(cat_id: cat1.id, start_date: DateTime.now, end_date: (DateTime.now + 7), status: "APPROVED")
